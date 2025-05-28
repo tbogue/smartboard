@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Classroom Screensaver</title>
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide scrollbars */
+    background-color: black; /* Or any color you prefer for the background */
+}
+
+#fullscreen-gif {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    object-fit: contain; /* Ensures the entire GIF is visible, scaling down if necessary */
+    /* If you want the GIF to cover the entire screen, potentially cropping it, use 'cover' instead: */
+    /* object-fit: cover; */
+}
+</style>
+</head>
+<body>
+
+<img id="fullscreen-gif" src="your-animated-gif.gif" alt="Classroom Screensaver GIF">
+
+<script>
+// Optional: Add a simple script to hide the mouse cursor after a short delay
+// This enhances the screensaver effect.
+let timeout;
+function hideCursor() {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+        document.body.style.cursor = 'none';
+    }, 3000); // Hide cursor after 3 seconds of inactivity
+}
+
+document.addEventListener('mousemove', () => {
+    document.body.style.cursor = 'default';
+    hideCursor();
+});
+
+document.addEventListener('keypress', () => {
+    document.body.style.cursor = 'default';
+    hideCursor();
+});
+
+hideCursor(); // Initial call to hide cursor if no activity
+</script>
+
+</body>
+</html>
